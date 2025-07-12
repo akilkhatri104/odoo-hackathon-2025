@@ -84,7 +84,7 @@ async def create_answer_notification(answer_id: int, Authorize: AuthJWT = Depend
     
     await database.connect()
     # Fetch answer and related question
-    answer_query = Answers.select().where(Answers.c.answer_id == answer_id)
+    answer_query = Answers.select().where(Answers.c.id == answer_id)
     answer = await database.fetch_one(answer_query)
     
     if not answer:
@@ -137,7 +137,7 @@ async def create_mention_notification(answer_id: int, Authorize: AuthJWT = Depen
     
     await database.connect()
     # Fetch answer
-    answer_query = Answers.select().where(Answers.c.answer_id == answer_id)
+    answer_query = Answers.select().where(Answers.c.id == answer_id)
     answer = await database.fetch_one(answer_query)
     
     if not answer:
@@ -169,7 +169,7 @@ async def create_mention_notification(answer_id: int, Authorize: AuthJWT = Depen
     notification_ids = []
     for username in mentions:
         # Fetch mentioned user
-        user_query = Users.select().where(Users.c.username == username)
+        user_query = Users.select().where(Users.c.id == username)
         mentioned_user = await database.fetch_one(user_query)
         
         if not mentioned_user or mentioned_user["user_id"] == current_user_id:
