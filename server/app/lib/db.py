@@ -25,11 +25,10 @@ class NotificationType(enum.Enum):
     mention = "mention"
 
 Users = Table(
-    "Users", metadata,
+    "users", metadata,
     Column("user_id", BigInteger, primary_key=True, autoincrement=True),
     Column("username", String(50), unique=True, nullable=False),
     Column("email", String(255), unique=True, nullable=False),
-    
     Column("password_hash", String(255), nullable=False),
     Column("role", Enum(UserRole, name="user_role"), nullable=False, default=UserRole.user),
     Column("created_at", TIMESTAMP, nullable=False),
@@ -37,7 +36,7 @@ Users = Table(
 )
 
 Questions = Table(
-    "Questions", metadata,
+    "questions", metadata,
     Column("question_id", BigInteger, primary_key=True, autoincrement=True),
     Column("user_id", BigInteger, ForeignKey("Users.user_id"), nullable=False),
     Column("title", String(255), nullable=False),
@@ -48,7 +47,7 @@ Questions = Table(
 )
 
 Answers = Table(
-    "Answers", metadata,
+    "answers", metadata,
     Column("answer_id", BigInteger, primary_key=True, autoincrement=True),
     Column("question_id", BigInteger, ForeignKey("Questions.question_id"), nullable=False),
     Column("user_id", BigInteger, ForeignKey("Users.user_id"), nullable=False),
@@ -63,7 +62,7 @@ Answers = Table(
 )
 
 Notifications = Table(
-    "Notifications", metadata,
+    "notifications", metadata,
     Column("notification_id", BigInteger, primary_key=True, autoincrement=True),
     Column("user_id", BigInteger, ForeignKey("Users.user_id"), nullable=False),
     Column("type", Enum(NotificationType, name="notification_type"), nullable=False),
