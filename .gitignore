@@ -1,0 +1,73 @@
+# -------------------
+# Python (server/)
+# -------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+.env
+.venv/
+venv/
+env/
+server/.mypy_cache/
+server/.pytest_cache/
+server/.coverage
+server/htmlcov/
+
+# -------------------
+# JavaScript/React/Next.js (client/)
+# -------------------
+client/node_modules/
+client/.next/
+client/out/
+client/.env*
+client/build/
+client/.turbo/
+client/dist/
+client/.env
+
+# -------------------
+# Common OS/Editor files
+# -------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# -------------------
+# IDE files
+# -------------------
+.vscode/
+.idea/
+*.code-workspace
+*.iml
+
+# -------------------
+# Log files
+# -------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -------------------
+# Docker / CI
+# -------------------
+*.pid
+*.pid.lock
+
+# -------------------
+# Optional: coverage and testing
+# -------------------
+coverage/
+*.cover
+*.pyc
+
+# -------------------
+# Global ignore override (if needed)
+# !important.config.js
