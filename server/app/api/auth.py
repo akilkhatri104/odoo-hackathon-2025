@@ -7,7 +7,7 @@ from ..lib.db import Users,database
 from ..lib.auth import create_session,verify_jwt,delete_refresh_token_from_db
 from sqlalchemy import select
 
-userRouter = APIRouter(prefix="/api/Users")
+userRouter = APIRouter(prefix="/api/auth")
 
 @userRouter.post("/signup")
 async def signup(response: Response,user: UserRequest):

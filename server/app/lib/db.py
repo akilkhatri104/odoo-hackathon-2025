@@ -29,6 +29,7 @@ Users = Table(
     Column("user_id", BigInteger, primary_key=True, autoincrement=True),
     Column("username", String(50), unique=True, nullable=False),
     Column("email", String(255), unique=True, nullable=False),
+    
     Column("password_hash", String(255), nullable=False),
     Column("role", Enum(UserRole, name="user_role"), nullable=False, default=UserRole.user),
     Column("created_at", TIMESTAMP, nullable=False),
