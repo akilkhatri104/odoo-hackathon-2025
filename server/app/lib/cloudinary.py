@@ -32,10 +32,8 @@ def delete_image_by_url(image_url):
     return cloudinary.uploader.destroy(public_id_with_ext)
 
 def upload_image_file(file, public_id=None, folder=None):
-    """
-    Uploads an image file (from a form) to Cloudinary and returns the public URL.
-    file: a file-like object (e.g., from FastAPI UploadFile.file or Flask request.files['file'])
-    """
+    if not file:
+        raise ValueError("No file provided for upload")
     options = {}
     if public_id:
         options['public_id'] = public_id
