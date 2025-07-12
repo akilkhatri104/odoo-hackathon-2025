@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.auth import userRouter
+from app.api.answers import userRouter
 from app.api.questions import questionsRouter
 from app.lib.db import database
 
@@ -21,6 +21,3 @@ app.add_middleware(
 
 app.include_router(router=userRouter)
 app.include_router(router=questionsRouter)
-
-
-
