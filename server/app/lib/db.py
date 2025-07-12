@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from sqlalchemy.sql import func
 
 load_dotenv()
 
@@ -31,7 +32,7 @@ Users = Table(
     Column("email", String(255), unique=True, nullable=False),
     Column("password_hash", String(255), nullable=False),
     Column("role", Enum(UserRole, name="user_role"), nullable=False, default=UserRole.user),
-    Column("created_at", TIMESTAMP, nullable=False),
+    Column("created_at", TIMESTAMP, nullable=False, default=func.now()),
     Column("is_banned", Boolean, nullable=False, default=False)
 )
 
